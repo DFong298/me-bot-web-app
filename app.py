@@ -2,6 +2,9 @@ from openai import OpenAI
 import streamlit as st
 
 
+# Page set-up
+st.set_page_config(page_title = "Dennis AI Chatbot", page_icon=":robot_face:")
+
 # Show intro initially
 if "intro_visible" not in st.session_state:
     st.session_state["intro_visible"] = True
@@ -13,7 +16,7 @@ if "messages" not in st.session_state:
     st.session_state.messages = [{"role": "system", "content": st.secrets.INIT_PROMPT}]
 
 if st.session_state["intro_visible"]:
-    st.markdown("Hi! You have found an AI chat bot imitation of me. Type something to get started!")
+    st.markdown("Hi! You have found an AI chat bot imitation of me. This is only AI, so don't take what it says too seriously! Type something to get started :slight_smile:")
 
 client = OpenAI(api_key=st.secrets.OPENAI_API_KEY)
 
